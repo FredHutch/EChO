@@ -11,7 +11,7 @@ Meers MP, Janssens DH, Henikoff S. (2019). "Pioneer factor-nucleosome binding ev
 
 ## Usage
 
-    EChO_1.0.sh <region bed file> <fragment bed file> ["foci" | "matrix"] <output prefix>
+    EChO_1.0.sh <region bed file> <fragment bed file> [foci | matrix] <output prefix>
 
 ## Input descriptions
 
