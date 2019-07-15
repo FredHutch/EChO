@@ -27,7 +27,7 @@ my $center=0;
 #my $center3=0;
 my $i=1;
 my $j=0;
-my $bedlen;
+my $bedlen = $ARGV[4]-1;
 #if(@ARGV < 3){
 #	die "Three argruments required: intersected bed file, output name, and span value\n";
 #}
@@ -35,7 +35,6 @@ open(BUFFER, $ARGV[0]);
 while(my $line = <BUFFER>){
 	chomp($line);
 	my @fields = split("\t", $line);
-	$bedlen = scalar(@fields);
 	if($chr ne $fields[0] || $start != $fields[1] || $stop != $fields[2] || $center != $fields[3]){
 		unless(!keys %points){
 			open(OUT, ">$ARGV[1].test.txt");
