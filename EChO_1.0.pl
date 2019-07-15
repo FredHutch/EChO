@@ -12,12 +12,11 @@ my $start=0;
 my $stop=0;
 my $center;
 my $i = 1;
-my $bedlen;
+my $bedlen = $ARGV[4]-1;
 open(BUFFER, $ARGV[0]);
 while(my $line = <BUFFER>){
 	chomp($line);
 	my @fields = split("\t", $line);
-	$bedlen = scalar(@fields);
 	if($chr ne $fields[0] || $start != $fields[1] || $stop != $fields[2]){
 		unless(keys %points < 10){
 			open(OUT, ">$ARGV[1].test.txt");
