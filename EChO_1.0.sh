@@ -28,12 +28,14 @@ path=`dirname $0`
 
 mode=`echo $3`
 
+columns=`awk '{print NF}' $1 | head -n 1`
+
 if [[ $mode == "foci" ]]
 then
-	bedtools intersect -wao -a $1 -b $2 | perl $path/EChO_1.0.pl - $4 line $path/EChO_1.0.R | sed '/^\s*$/d' > $4.EChO.bed
+	bedtools intersect -wao -a $1 -b $2 | perl $path/EChO_1.0.pl - $4 line $path/EChO_1.0.R $columns | sed '/^\s*$/d' > $4.EChO.bed
 elif [[ $mode == "matrix" ]]
 then	
-	bedtools intersect -wao -a $1 -b $2 | perl $path/EChO.matrix_1.0.pl - $4 line $path/EChO.matrix_1.0.R | sed '/^\s*$/d' > $4.EChO.matrix
+	bedtools intersect -wao -a $1 -b $2 | perl $path/EChO.matrix_1.0.pl - $4 line $path/EChO.matrix_1.0.R $columns | sed '/^\s*$/d' > $4.EChO.matrix
 else
 	echo "**Third entry must be \"foci\" for foci mode or \"matrix\" for matrix mode**
 
