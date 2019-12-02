@@ -73,7 +73,7 @@ foreach my $key (keys %points){
 	print OUT "$points{$key}{offset}\t$points{$key}{len}\n";
 }
 close(OUT);
-my $output = `Rscript scripts/fragsize.avg.052918.R --frame=$ARGV[1].test.txt --center=$center`;
+my $output = `Rscript $ARGV[3] --frame=$ARGV[1].test.txt --center=$center --line=$i --output=$ARGV[1] --span=$ARGV[2]`;
 push(@newoutput, $output);
 foreach(@newoutput){
 	print "$_\n";
