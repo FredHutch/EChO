@@ -28,7 +28,18 @@ Meers MP, Janssens DH, Henikoff S. (2019). "Pioneer factor-nucleosome binding ev
   4) Filter this output to throw out any read pairs for which the fragment length is greater than 1000, which are likely to represent incorrect mapping positions.
 The result is a three-column bed file that represents every fragment with read pairs mapped within 1kb of each other.
 
-**"foci"/"matrix":** Using "foci" runs EChO in foci mode, which calls all local minima (foci) in the EChO profiles derived from every entry in your region bed file. Using "matrix" runs EChO in matrix mode, which generates a matrix of base pair-resolution EChO fragment size values spanning a 400bp window for every entry in your region bed file. NOTE: For matrix mode, the region bed file **must** contain a fourth column that denotes the single base-pair focus within the region that will be used to center the matrix.
+**"foci"/"matrix":** Using "foci" runs EChO in foci mode, which calls all local minima (foci) in the EChO profiles derived from every entry in your region bed file. Using "matrix" runs EChO in matrix mode, which generates a matrix of base pair-resolution EChO fragment size values spanning a 400bp window for every entry in your region bed file. 
+
+NOTE: For matrix mode, the region bed file **must** contain a fourth column that denotes the single base-pair focus within the region that will be used to center the matrix. This can be generated as follows:
+
+  1) Use bedtools intersect with the -wao flag to intersect the region bed file (-a file) with a bed file of single-bp foci residing within those regions such as the output of "foci" mode (-b file).
+  
+  2) Filter out any entries from the -a file that do not overlap an entry from the -b file.
+  
+  3) Generate a new four-column bed file containing only the chr, start and end coordinates from the region bed file, and a single bp coordinate from the foci file (e.g. the start coordinate). Example line:
+
+    chr1	804242	807405	805051
+
 
 **Output prefix:** A prefix for naming of output files.
 
