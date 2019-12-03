@@ -53,8 +53,8 @@ while(my $line = <BUFFER>){
 		$stop = $fields[2];
 		$center = $fields[3];
 	}
-	my $fragstart = $fields[$bedlen+1];
-	my $fragstop = $fields[$bedlen+2];
+	my $fragstart = $fields[$bedlen+2];
+	my $fragstop = $fields[$bedlen+3];
 	my $fragcenter;
 	if(($fragstop - $fragstart)%2 == 1){
 		$fragcenter = (($fragstop - $fragstart + 1)/2)+$fragstart;
@@ -62,7 +62,7 @@ while(my $line = <BUFFER>){
 		$fragcenter = (($fragstop-$fragstart)/2)+$fragstart;
 	}
 	my $offset = $fragcenter - $center;
-	my $fraglength = $fields[$bedlen+2]-$fields[$bedlen+1];
+	my $fraglength = $fields[$bedlen+3]-$fields[$bedlen+2];
 	my $index = $j;
 	$points{$index}{offset} = $offset;
 	$points{$index}{len} = $fraglength;
