@@ -17,7 +17,7 @@ then
 	Foci mode generates average fragment size profiles from a set of regions and identifies local minima in those profiles (foci)
 	
 	Matrix mode similarly generates average fragment size profiles and generates a matrix of average fragment size values surrounding every focus
-	NOTE: Matrix mode requires the fourth column of the region bed fie to  represent the region focus as defined by EChO Foci mode
+	NOTE: Matrix mode requires the fourth column of the region bed file to represent the region focus as defined by EChO Foci mode
 
 	"
 	exit 1
@@ -51,7 +51,7 @@ else
 	Foci mode generates average fragment size profiles from a set of regions and identifies local minima in those profiles (foci)
 	
 	Matrix mode similarly generates average fragment size profiles and generates a matrix of average fragment size values surrounding every focus
-	NOTE: Matrix mode requires the fourth column of the region bed fie to  represent the region focus as defined by EChO Foci mode
+	NOTE: Matrix mode requires the fourth column of the region bed file to represent the region focus as defined by EChO Foci mode
 
 	"
 	exit 1
