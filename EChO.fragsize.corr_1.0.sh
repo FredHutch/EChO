@@ -41,7 +41,7 @@ do
 	lensecond=`wc -l $password.second.bed | awk '{print $1}'`
 	if [ $lenfirst -gt 10 ] && [ $lensecond -gt 10 ]
 	then
-		Rscript $path/EChO.fragsize.corr.R --first=$password.first.bed --second=$password.second.bed --int=$password.int.bed --output=$7
+		Rscript $path/EChO.fragsize.corr_1.0.R --first=$password.first.bed --second=$password.second.bed --int=$password.int.bed --output=$7
 	fi
 done
 
